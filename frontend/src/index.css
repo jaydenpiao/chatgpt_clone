@@ -7,3 +7,7 @@ html, body {
   color: white;
   font-family: "Lato", sans-serif;
 }
+
+.image-inverted {
+  filter: inver(100%); 
+}
