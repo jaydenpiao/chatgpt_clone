@@ -2,6 +2,18 @@ import { Avatar, Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import { useAuth } from '../context/AuthContext';
 import { red } from '@mui/material/colors';
+import ChatItem from '../components/chat/ChatItem';
+
+const chatMessages = [
+  {role: "user", content: "Hello, can you help me with my math homework?"},
+  {role: "assistant", content: "Of course! What topic are you working on?"},
+  {role: "user", content: "I'm trying to understand quadratic equations."},
+  {role: "assistant", content: "Sure, quadratic equations can be tricky. Let's start with the basics. A quadratic equation is of the form ax^2 + bx + c = 0."},
+  {role: "user", content: "How do I find the values of x?"},
+  {role: "assistant", content: "You can use the quadratic formula: x = (-b ± sqrt(b^2 - 4ac)) / 2a. This formula will give you the two solutions for x."},
+  {role: "user", content: "That makes sense. Thanks for the help!"},
+  {role: "assistant", content: "You're welcome! Feel free to ask if you have more questions."}
+]
 
 
 const Chat = () => {
@@ -31,12 +43,13 @@ const Chat = () => {
 
         </Typography>
         <Box sx={{width:'100%', height:'60vh', borderRadius:3, mx:'auto', display:'flex', flexDirection:'column', overflow:'scroll', overflowX: 'hidden', overflowY:'auto', scrollBehavior:'smooth',}}>
-
+          {chatMessages.map((chat, index) => (<ChatItem content={chat.content} role={chat.role} key={index} />))}
         </Box>
 
       </Box>
     </Box>
   )
 }
+
 
 export default Chat
